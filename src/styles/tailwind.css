@@ -40,6 +40,19 @@
   --font-bold: "AzoBold", sans-serif;
 }
 
+/* Border */
+.border-orange {
+  border-color: var(--color-Orange);
+}
+
+/* Background color */
+
+.bg-orange {
+  background-color: var(--color-Orange);
+}
+
+/* Text color */
+
 @layer base {
   .font-display,
   [class*="font-display"] {
