@@ -1,4 +1,4 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 
 @plugin '@tailwindcss/typography';
 @plugin '@tailwindcss/forms';
@@ -6,45 +6,50 @@
 @import "tailwindcss-intersect";
 
 @font-face {
-  font-family: 'Honk';
-  src: url('/fonts/Honk-Regular-VariableFont_MORF,SHLN.ttf') format('truetype');
+  font-family: "AzoUber";
+  src: url("/fonts/Azo_Sans_Uber_Regular.woff2") format("woff2"), url("/fonts/Azo_Sans_Uber_Regular.woff") format("woff"), url("/fonts/Azo_Sans_Uber_Regular.ttf") format("truetype");
+  font-feature-settings: "liga" 0, "clig" 0, "dlig" 0, "hlig" 0;
+  font-variant-ligatures: none;
 }
 
 @font-face {
-  font-family: 'Quicksand';
-  src: url('/fonts/Quicksand-VariableFont_wght.ttf') format('truetype');
+  font-family: "AzoBold";
+  src: url("/fonts/AzoSansTest-Bold.woff2") format("woff2"), url("/fonts/AzoSansTest-Bold.woff") format("woff"), url("/fonts/AzoSansTest-Bold.ttf") format("truetype");
 }
 
 @font-face {
-  font-family: 'Domine';
-  src: url('/fonts/Domine-Regular.ttf') format('truetype');
+  font-family: "AzoRegular";
+  src: url("/fonts/AzoSansTest-Regular.woff2") format("woff2"), url("/fonts/AzoSansTest-Regular.woff") format("woff"), url("/fonts/AzoSansTest-Regular.ttf") format("truetype");
 }
 
 @theme {
   /* Her tilføjes theme variable // tokens */
 
   /*Farver */
-  --color-primary-400: #00E4F5;
-  --color-primary-500: #006269;
-  --color-primary-600: #006D75;
-  --color-secondary-400: #F5E400;
-  --color-secondary-500: #F5A600;
-  --color-secondary-600: #F57A00;
+  --color-White: #ffffff;
+  --color-Black: #000000;
+  --color-Background: #fbfaf8;
+  --color-Beige: #f0ede9;
+  --color-Lightblue: #cadff4;
+  --color-Darkblue: #6586a1;
+  --color-Orange: #ff5900;
 
   /*Typografi */
-  --font-display: 'Honk', monospace;
-  --font-sans: 'Quicksand', sans-serif;
-  --font-serif: 'Domine', serif;
+  --font-display: "AzoUber", sans-serif;
+  --font-regular: "AzoRegular", sans-serif;
+  --font-bold: "AzoBold", sans-serif;
 }
 
 @layer base {
-
+  .font-display,
+  [class*="font-display"] {
+    font-feature-settings: "liga" 0, "clig" 0, "dlig" 0, "hlig" 0;
+    font-variant-ligatures: none;
+  }
 }
 
-@layer components{
-
+@layer components {
 }
 
-@layer utilities{
-  
+@layer utilities {
 }

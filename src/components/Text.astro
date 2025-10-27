@@ -1,11 +1,13 @@
 ---
+import { h1, h2, h3, h4 } from "motion/react-client";
+
 // Henter parametrene fra Astro.props
-const { teksttype="brødtekst", stylingclasses=""} = Astro.props; 
- 
+const { teksttype = "brødtekst", stylingclasses = "" } = Astro.props;
+
 //Definer den styling (Tailwind classes), der gør sig gældende for de forskellige størrelser.
 const sizeClasses = {
-"konsultativ": "text-sm text-italic",
-"brødtekst": "text-xl my-4",
+  p: "text-[9px] md:text-[14px] font-regular ",
 };
 ---
+
 <p class:list={[sizeClasses[teksttype], stylingclasses]}><slot /></p>
