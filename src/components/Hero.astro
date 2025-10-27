@@ -1,0 +1,38 @@
+---
+import Text from "./Text.astro";
+import Heading from "./Heading.astro";
+---
+
+<section
+  class="relative w-full overflow-hidden min-h-[40vh] md:min-h-[70vh] lg:min-h-[80vh] bg-center bg-cover bg-no-repeat"
+  style="background-image: url('/img/singleheroimg.webp'); background-attachment: fixed;"
+>
+  <div
+    class="relative mx-auto w-full max-w-[1280px] px-4 sm:px-6 lg:px-8 py-10 md:py-14 lg:py-20 flex justify-center"
+  >
+    <div class="relative w-full max-w-[1100px]">
+      <img
+        src="/img/singleviewhero.webp"
+        alt="boat team picture"
+        class="w-full drop-shadow-2xl"
+      />
+
+      <div
+        class="absolute top-0 left-0 w-full h-full flex justify-end items-center p-6"
+      >
+        <div class="flex flex-col gap-y-2 w-1/2 items-end text-right pt-5">
+          <div class="flex gap-2 pr-5 md:pr-10">
+            <Heading font="display">Varighed -</Heading>
+            <Text>Ca. 60 dage</Text>
+          </div>
+
+          <div class="flex gap-2 pr-5 md:pr-10">
+            <Heading font="display">Fra -</Heading>
+            <Text>57.000 DKK</Text>
+          </div>
+        </div>
+        <div class="w-1/2"></div>
+      </div>
+    </div>
+  </div>
+</section>
