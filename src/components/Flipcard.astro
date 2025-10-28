@@ -6,12 +6,13 @@ interface Props {
   backTitle?: string;
   width?: string;
   height?: string;
+  stylingclasses?: string;
 }
 
-const { frontImage = "", frontTitle = "", backText = "", backTitle = "", width = "300px", height = "200px" } = Astro.props as Props;
+const { frontImage = "", frontTitle = "", backText = "", backTitle = "", width = "300px", height = "200px", stylingclasses = "" } = Astro.props as Props;
 ---
 
-<div class="flipcard group inline-block relative outline-none" tabindex="0" role="button" style={`width:${width}; height:${height};`}>
+<div class={`flipcard group inline-block relative outline-none ${stylingclasses}`} tabindex="0" role="button" style={`width:${width}; height:${height};`}>
   <div class="card relative w-full h-full">
     <!-- front -->
     <div class="face front absolute inset-0 overflow-hidden shadow-lg">
