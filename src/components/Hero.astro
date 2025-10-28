@@ -20,25 +20,33 @@ import Buttonnotify from "./Buttonnotify.astro";
       />
 
       <div
-        class="absolute top-0 left-0 w-full h-full flex justify-end items-center p-6"
+        class="absolute top-0 left-0 w-full h-full flex justify-end items-center p-6 md:top-7"
       >
         <div
-          class="flex flex-col gap-y-2 w-1/2 items-end text-right pt-10 md:pt-5"
+          class="flex flex-col gap-y-2 w-1/2 items-end text-right pt-10 md:pt-5 sm:mt-30"
         >
           <div class="flex gap-2 pr-5 md:pr-10">
-            <Heading font="display" stylingclasses="text-[12px] md:text-[20px]"
-              >Varighed -</Heading
+            <Heading
+              font="display"
+              color="black"
+              stylingclasses="text-[12px] md:text-[20px] ">Varighed -</Heading
             >
             <Text stylingclasses="text-[12px] md:text-[20px]">Ca. 60 dage</Text>
           </div>
 
           <div class="flex gap-2 pr-5 md:pr-10">
-            <Heading font="display" stylingclasses="text-[12px] md:text-[20px]"
+            <Heading
+              font="display"
+              color="black"
+              stylingclasses="text-[12px] md:text-[20px] text-[var(--color-Black)]"
               >Fra -</Heading
             >
             <Text stylingclasses="text-[12px] md:text-[20px]">57.000 DKK</Text>
           </div>
-          <div class="flex gap-2 mt-4 justify-center pb-10 hidden md:flex">
+          <div
+            id="desktop-buttons"
+            class="sm:mr-5 md:mr-10 gap-2 mt-4 justify-end pb-10 hidden sm:flex sm:flex-col lg:flex-row"
+          >
             <Buttonnotify
               variant="primary"
               size="medium"
@@ -52,7 +60,7 @@ import Buttonnotify from "./Buttonnotify.astro";
     </div>
   </div>
 </section>
-<div class="flex gap-2 mt-4 justify-center pb-10 md:hidden">
+<div id="mobile-buttons" class="flex gap-2 mt-4 justify-center pb-10 sm:hidden">
   <Buttonnotify variant="primary" size="medium" data-modal-target="follow-modal"
     >Hold mig opdateret</Buttonnotify
   >
