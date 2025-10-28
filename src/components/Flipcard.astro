@@ -1,0 +1,68 @@
+---
+interface Props {
+  frontImage: string;
+  frontTitle?: string;
+  backText?: string;
+  backTitle?: string;
+  width?: string;
+  height?: string;
+  stylingclasses?: string;
+}
+
+const { frontImage = "", frontTitle = "", backText = "", backTitle = "", width = "300px", height = "200px", stylingclasses = "" } = Astro.props as Props;
+---
+
+<div class={`flipcard group inline-block relative outline-none ${stylingclasses}`} tabindex="0" role="button" style={`width:${width}; height:${height};`}>
+  <div class="card relative w-full h-full">
+    <!-- front -->
+    <div class="face front absolute inset-0 overflow-hidden shadow-lg">
+      <img src={frontImage} alt={frontTitle} class="w-full h-full object-cover" />
+      {frontTitle && <div class="absolute left-3 bottom-2 font-display text-white px-3 py-1 text-lg">{frontTitle}</div>}
+      <img src="/img/RoundArrow.png" alt={frontTitle} class="absolute right-3 top-2 w-5 h-5" />
+    </div>
+
+    <!-- back -->
+    <div class="face back absolute inset-0 bg-[var(--color-Lightblue)] p-4">
+      <!-- ændret: brug flex-col + justify-center for vertikal centrering -->
+      <div class="w-full h-full flex flex-col justify-center">
+        <!-- fjernet mb-8 og overflow-auto så indhold kan centreres lodret -->
+        <div class="text-gray-800 text-sm font-regular">{backText}</div>
+        {backTitle && <div class="absolute left-3 bottom-2 font-display text-black px-3 py-1 text-lg">{backTitle}</div>}
+        <img src="/img/RoundArrowBlack.png" alt={frontTitle} class="absolute right-3 top-2 w-5 h-5" />
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  /* Tailwind handles layout; keep small CSS for 3D behaviour */
+  .flipcard {
+    perspective: 1200px;
+  }
+  .flipcard .card {
+    transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
+    transition: transform 0.6s ease;
+    transform-origin: center; /* hinge on left -> flip L->R */
+  }
+  .flipcard:hover .card,
+  .flipcard:focus .card,
+  .flipcard:focus-within .card {
+    transform: rotateY(180deg);
+  }
+  .face {
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
+  .front {
+    transform: rotateY(0deg);
+    z-index: 2;
+  }
+  .back {
+    transform: rotateY(180deg);
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    box-sizing: border-box;
+  }
+</style>

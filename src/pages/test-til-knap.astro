@@ -7,9 +7,13 @@ import Heading from "../components/Heading.astro";
 import Text from "../components/Text.astro";
 import Button from "../components/Button.astro";
 import ButtonNotify from "../components/Buttonnotify.astro";
+import Footer from "../components/Footer.astro";
+import Flipcard from "../components/Flipcard.astro";
 ---
 
 <MainLayout>
+  <Flipcard frontcontent={(<Image src={thumbsup} alt="Tommel op" width={150} height={150} />)} backcontent={(<Text>Dette er bagsiden af flipcardet!</Text>)} stylingclasses="w-40 h-40" />
+
   <!-- Knappen med tekst -->
   <Button variant="primary" size="medium">Tilmeld dig opholdet</Button>
 

@@ -1,0 +1,107 @@
+---
+import Text from "./Text.astro";
+---
+
+<section class="flex flex-col md:flex-row gap-10 md:gap-0 justify-center items-start my-20">
+  <div class="flex flex-col gap-10 md:gap-0 md:flex-row justify-center items-center max-w-6xl mx-auto w-full px-4">
+    <div class="grid grid-cols-2 md:flex md:flex-row justify-evenly items-start w-full max-w-lg md:max-w-none gap-y-8 md:gap-x-18">
+      <div class="flex flex-col justify-start items-start">
+        <Text class="max-w-full h-auto">Højskole i udlandet siden</Text>
+        <div class="h-[5px] w-40 md:w-60 bg-[var(--color-Lightblue)] mt-2"></div>
+        <div class="text-[27px] md:text-[40px] font-bold text-[var(--color-Orange)]" id="counter1">0</div>
+      </div>
+
+      <div class="flex flex-col justify-start items-start">
+        <Text class="max-w-full h-auto">Glade & skønne elever</Text>
+        <div class="h-[5px] w-40 md:w-60 bg-[var(--color-Lightblue)] mt-2"></div>
+        <div class="flex items-baseline gap-1">
+          <div class="text-[27px] md:text-[40px] font-bold text-[var(--color-Orange)]" id="counter2">0</div>
+          <span class="text-[40px] font-bold text-[var(--color-Orange)]">+</span>
+        </div>
+      </div>
+      <div class="flex flex-col justify-start items-start">
+        <Text class="max-w-full h-auto">Anbefaler Höjskolendk (2025) </Text>
+        <div class="h-[5px] w-40 md:w-60 bg-[var(--color-Lightblue)] mt-2"></div>
+        <div class="flex items-baseline gap-1">
+          <div class="text-[27px] md:text-[40px] font-bold text-[var(--color-Orange)]" id="counter3">0</div>
+          <span class="text-[40px] font-bold text-[var(--color-Orange)]">%</span>
+        </div>
+      </div>
+      <div class="flex flex-col justify-start items-start">
+        <Text class="max-w-full h-auto">Læs anmeldelser her</Text>
+        <div class="h-[5px] w-40 md:w-60 bg-[var(--color-Lightblue)] mt-2"></div>
+        <a href="https://dk.trustpilot.com/review/hojskolendk.dk" target="_blank" rel="noopener noreferrer" class="mt-4 text-[var(--color-Orange)] hover:opacity-80 transition-opacity duration-300 flex items-center gap-3">
+          <img src="/img/trustpilot.jpg" alt="Trustpilot logo" class="h-15 md:h-20 w-auto" />
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const counter1 = document.getElementById("counter1");
+  const counter2 = document.getElementById("counter2");
+  const counter3 = document.getElementById("counter3");
+  const targetNumber1 = 2010;
+  const targetNumber2 = 3000;
+  const targetNumber3 = 96;
+  const duration = 2500; // 2 seconds
+  const fps = 50;
+  const frames = duration / (1000 / fps);
+  const increment1 = targetNumber1 / frames;
+  const increment2 = targetNumber2 / frames;
+  const increment3 = targetNumber3 / frames;
+  let currentNumber1 = 0;
+  let currentNumber2 = 0;
+  let currentNumber3 = 0;
+
+  function updateCounter1() {
+    if (currentNumber1 < targetNumber1) {
+      currentNumber1 = Math.min(currentNumber1 + increment1, targetNumber1);
+      counter1.textContent = Math.round(currentNumber1).toString();
+      requestAnimationFrame(updateCounter1);
+    }
+  }
+
+  function updateCounter2() {
+    if (currentNumber2 < targetNumber2) {
+      currentNumber2 = Math.min(currentNumber2 + increment2, targetNumber2);
+      counter2.textContent = Math.round(currentNumber2).toString();
+      requestAnimationFrame(updateCounter2);
+    }
+  }
+
+  function updateCounter3() {
+    if (currentNumber3 < targetNumber3) {
+      currentNumber3 = Math.min(currentNumber3 + increment3, targetNumber3);
+      counter3.textContent = Math.round(currentNumber3).toString();
+      requestAnimationFrame(updateCounter3);
+    }
+  }
+
+  // Start animation when the elements are in view
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        if (entry.target.id === "counter1") {
+          updateCounter1();
+        } else if (entry.target.id === "counter2") {
+          updateCounter2();
+        } else if (entry.target.id === "counter3") {
+          updateCounter3();
+        }
+        observer.unobserve(entry.target);
+      }
+    });
+  });
+
+  if (counter1) {
+    observer.observe(counter1);
+  }
+  if (counter2) {
+    observer.observe(counter2);
+  }
+  if (counter3) {
+    observer.observe(counter3);
+  }
+</script>

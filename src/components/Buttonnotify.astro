@@ -8,8 +8,7 @@ const buttonStyling =
 
 //Definer den styling (Tailwind classes), der gør sig gældende for de forskellige varianter
 const variantClasses = {
-  primary:
-    "border-[var(--color-Orange)] hover:bg-[var(--color-Orange)] hover:cursor-pointer transition-all duration-300",
+  primary: "border-[var(--color-Orange)] hover:bg-[var(--color-Orange)] hover:cursor-pointer transition-all duration-300",
 };
 
 //Definer den styling (Tailwind classes), der gør sig gældende for de forskellige størrelser.
@@ -18,20 +17,9 @@ const sizeClasses = {
 };
 ---
 
-<button
-  type="button"
-  {...rest}
-  class:list={[buttonStyling, variantClasses[variant], sizeClasses[size]]}
->
+<button type="button" {...rest} class:list={[buttonStyling, variantClasses[variant], sizeClasses[size]]}>
   <slot />
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    fill="none"
-    viewBox="0 0 24 24"
-    stroke-width="1.5"
-    stroke="currentColor"
-    class="w-4 h-4 md:w-5 md:h-5 ml-2"
-  >
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 md:w-5 md:h-5 ml-2">
     <path
       stroke-linecap="round"
       stroke-linejoin="round"
