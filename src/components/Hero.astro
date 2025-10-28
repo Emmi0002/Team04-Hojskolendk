@@ -1,10 +1,12 @@
 ---
 import Text from "./Text.astro";
 import Heading from "./Heading.astro";
+import Button from "./Button.astro";
+import Buttonnotify from "./Buttonnotify.astro";
 ---
 
 <section
-  class="relative w-full overflow-hidden min-h-[40vh] md:min-h-[70vh] lg:min-h-[80vh] bg-center bg-cover bg-no-repeat"
+  class="relative w-full overflow-hidden min-h-[20vh] sm:min-h-[30vh] md:min-h-[70vh] lg:min-h-[80vh] bg-center bg-cover bg-no-repeat"
   style="background-image: url('/img/singleheroimg.webp'); background-attachment: fixed;"
 >
   <div
@@ -20,15 +22,29 @@ import Heading from "./Heading.astro";
       <div
         class="absolute top-0 left-0 w-full h-full flex justify-end items-center p-6"
       >
-        <div class="flex flex-col gap-y-2 w-1/2 items-end text-right pt-5">
+        <div
+          class="flex flex-col gap-y-2 w-1/2 items-end text-right pt-10 md:pt-5"
+        >
           <div class="flex gap-2 pr-5 md:pr-10">
-            <Heading font="display">Varighed -</Heading>
-            <Text>Ca. 60 dage</Text>
+            <Heading font="display" stylingclasses="text-[12px] md:text-[20px]"
+              >Varighed -</Heading
+            >
+            <Text stylingclasses="text-[12px] md:text-[20px]">Ca. 60 dage</Text>
           </div>
 
           <div class="flex gap-2 pr-5 md:pr-10">
-            <Heading font="display">Fra -</Heading>
-            <Text>57.000 DKK</Text>
+            <Heading font="display" stylingclasses="text-[12px] md:text-[20px]"
+              >Fra -</Heading
+            >
+            <Text stylingclasses="text-[12px] md:text-[20px]">57.000 DKK</Text>
+          </div>
+          <div class="flex gap-2 mt-4 justify-center pb-10 hidden md:flex">
+            <Buttonnotify
+              variant="primary"
+              size="medium"
+              data-modal-target="follow-modal">Hold mig opdateret</Buttonnotify
+            >
+            <Button>Tilmeld dig opholdet</Button>
           </div>
         </div>
         <div class="w-1/2"></div>
@@ -36,3 +52,115 @@ import Heading from "./Heading.astro";
     </div>
   </div>
 </section>
+<div class="flex gap-2 mt-4 justify-center pb-10 md:hidden">
+  <Buttonnotify variant="primary" size="medium" data-modal-target="follow-modal"
+    >Hold mig opdateret</Buttonnotify
+  >
+  <Button>Tilmeld dig opholdet</Button>
+</div>
+
+<div
+  id="follow-modal"
+  role="dialog"
+  aria-modal="true"
+  aria-hidden="true"
+  class="fixed inset-0 z-50 hidden"
+>
+  <div class="absolute inset-0 bg-black/40" data-modal-backdrop></div>
+
+  <div
+    class="relative max-w-[680px] mx-auto mt-20 bg-[var(--color-Lightblue)] p-8 drop-shadow-lg"
+  >
+    <button
+      type="button"
+      data-modal-close
+      aria-label="Luk"
+      class="absolute top-3 right-3 text-black text-2xl">×</button
+    >
+    <Heading
+      htmlheading="h1"
+      ,
+      size="large"
+      ,
+      font="display"
+      ,
+      stylingclasses="text-[28px] md:text-[32px] text-[var(--color-Orange)] mb-4"
+      >FØLG DENNE REJSE</Heading
+    >
+    <Text stylingclasses="mb-6"
+      >Vi giver besked når der er få ledige pladser tilbage på denne rejse.</Text
+    >
+
+    <form
+      class="flex flex-col gap-4"
+      onsubmit="event.preventDefault(); handleFollowSubmit(event)"
+    >
+      <input
+        type="email"
+        name="email"
+        placeholder="Email"
+        required
+        class="px-3 py-2 border-0"
+      />
+      <Button variant="primary" size="medium">Påmind mig</Button>
+    </form>
+  </div>
+</div>
+
+<script>
+  // Enkel modal-åbner/lukker: finder knapper med data-modal-target
+  document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll("[data-modal-target]").forEach((btn) => {
+      btn.addEventListener("click", (e) => {
+        const id = btn.dataset.modalTarget;
+        const modal = document.getElementById(id);
+        if (!modal) return;
+        modal.classList.remove("hidden");
+        modal.setAttribute("aria-hidden", "false");
+        document.body.style.overflow = "hidden";
+      });
+    });
+
+    // luk ved klik på close eller backdrop
+    document.addEventListener("click", (e) => {
+      if (
+        e.target.matches("[data-modal-close]") ||
+        e.target.matches("[data-modal-backdrop]")
+      ) {
+        const modal = e.target.closest('[role="dialog"]');
+        if (!modal) return;
+        modal.classList.add("hidden");
+        modal.setAttribute("aria-hidden", "true");
+        document.body.style.overflow = "";
+      }
+    });
+
+    // luk med Escape
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        document.querySelectorAll('[role="dialog"]').forEach((m) => {
+          if (!m.classList.contains("hidden")) {
+            m.classList.add("hidden");
+            m.setAttribute("aria-hidden", "true");
+            document.body.style.overflow = "";
+          }
+        });
+      }
+    });
+  });
+
+  // simpel form-submit handler
+  function handleFollowSubmit(e) {
+    const form = e.target;
+    const email = form.querySelector('input[type="email"]').value;
+    console.log("Tilmeld (simuleret):", email);
+    // luk modal
+    const modal = document.getElementById("follow-modal");
+    if (modal) {
+      modal.classList.add("hidden");
+      modal.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "";
+    }
+    alert("Tak — du vil modtage en besked når pladserne er ledige.");
+  }
+</script>
