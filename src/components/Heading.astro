@@ -5,6 +5,7 @@ const {
   size = "medium",
   font = "sans",
   stylingclasses = "",
+  color = "orange",
 } = Astro.props;
 const Htmlheading = htmlheading;
 
@@ -22,8 +23,21 @@ const fontClasses = {
   regular: "font-regular",
   bold: "font-bold",
 };
+
+// Farveklasser: orange (standard) og sort
+const colorClasses = {
+  orange: "text-[var(--color-Orange)]",
+  black: "text-[var(--color-Black)]",
+};
 ---
 
-<Htmlheading class:list={[stylingclasses, sizeClasses[size], fontClasses[font]]}
-  ><slot /></Htmlheading
+<Htmlheading
+  class:list={[
+    stylingclasses,
+    sizeClasses[size],
+    fontClasses[font],
+    colorClasses[color] ?? colorClasses.orange,
+  ]}
 >
+  <slot />
+</Htmlheading>
