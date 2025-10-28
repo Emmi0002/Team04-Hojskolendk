@@ -1,8 +1,18 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
 import Hero from "../components/Hero.astro";
+import Flipcard from "../components/Flipcard.astro";
+import Image from "astro/components/Image.astro";
 ---
 
 <MainLayout title="Singleview">
   <Hero />
+  <Flipcard
+    frontImage="/img/teamphoto.png"
+    frontTitle="SOFIA 23"
+    backText="“ Det fedeste for mig var helt klart de aftener vi bare brugte på at lære hinanden at kende, og nød de smukke omgivelser vi befandt os i sammen. ”"
+    backTitle="SOFIA 23"
+    width="600px"
+    height="400px"
+  />
 </MainLayout>
