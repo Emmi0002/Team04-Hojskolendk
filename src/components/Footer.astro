@@ -4,62 +4,196 @@ import Heading from "./Heading.astro";
 import Image from "astro/components/Image.astro";
 ---
 
-<footer class="bg-[var(--color-Darkblue)] text-white mt-12 relative overflow-hidden">
-  <Image src="/img/blueworld.png" alt="Facebook Logo" width="650" height="100" class="absolute -right-40 lg:-bottom-30 lg:right-0 md:-right-40 md:-bottom-20 sm:-right-60" />
+<footer
+  class="pt-5 bg-[var(--color-Darkblue)] text-white mt-12 relative overflow-hidden"
+>
+  <Image
+    src="/img/blueworld.png"
+    alt="Facebook Logo"
+    width="650"
+    height="100"
+    class="absolute -right-40 lg:-bottom-30 lg:right-0 md:-right-40 md:-bottom-20 sm:-right-60"
+  />
   <div class="container p-4 md:grid grid-cols-[1fr_1fr_1.5fr] gap-3">
     <!-- Informationer -->
     <div>
-      <Heading htmlheading="h3" , size="medium" , font="display" , stylingclasses="text-[var(--color-White)] mb-4">HØJSKOLENDK</Heading>
-      <Text stylingclasses="mb-6 strong">Rosenørns Allé 31<br /> 1970 Frederiksberg<br /> Denmark</Text>
-      <Text stylingclasses="mb-6 strong">Telefon: 70 27 90 07<br /> Mandag til fredag // kl. 10-16<br /> Mail: info@hojskolendk.dk</Text>
+      <Heading
+        htmlheading="h3"
+        ,
+        size="medium"
+        ,
+        font="display"
+        ,
+        stylingclasses="text-[var(--color-White)] mb-4">HØJSKOLENDK</Heading
+      >
+      <Text stylingclasses="mb-6 strong"
+        >Rosenørns Allé 31<br /> 1970 Frederiksberg<br /> Denmark</Text
+      >
+      <Text stylingclasses="mb-6 strong"
+        >Telefon: 70 27 90 07<br /> Mandag til fredag // kl. 10-16<br /> Mail: info@hojskolendk.dk</Text
+      >
     </div>
     <div>
-      <Heading htmlheading="h3" , size="medium" , font="display" , stylingclasses="text-[var(--color-White)] mb-4">GODT AT VIDE</Heading>
-      <Text stylingclasses="strong hover:text-[var(--color-Orange)] hover:cursor-pointer">FAQ</Text>
-      <Text stylingclasses="strong hover:text-[var(--color-Orange)] hover:cursor-pointer">Job</Text>
-      <Text stylingclasses="strong hover:text-[var(--color-Orange)] hover:cursor-pointer">Bæredygtighed</Text>
-      <Text stylingclasses="strong hover:text-[var(--color-Orange)] hover:cursor-pointer">Rejsegarantifonden</Text>
-      <Text stylingclasses="strong hover:text-[var(--color-Orange)] hover:cursor-pointer">Generelle bestemmelser</Text>
-      <Text stylingclasses="strong hover:text-[var(--color-Orange)] hover:cursor-pointer">Grupperejser for unge</Text>
-      <Text stylingclasses="strong hover:text-[var(--color-Orange)] hover:cursor-pointer">Rejs i dit sabbatår</Text>
+      <Heading
+        htmlheading="h3"
+        ,
+        size="medium"
+        ,
+        font="display"
+        ,
+        stylingclasses="text-[var(--color-White)] mb-4">GODT AT VIDE</Heading
+      >
+      <Text
+        stylingclasses="strong hover:text-[var(--color-Orange)] hover:cursor-pointer"
+        >FAQ</Text
+      >
+      <Text
+        stylingclasses="strong hover:text-[var(--color-Orange)] hover:cursor-pointer"
+        >Job</Text
+      >
+      <Text
+        stylingclasses="strong hover:text-[var(--color-Orange)] hover:cursor-pointer"
+        >Bæredygtighed</Text
+      >
+      <Text
+        stylingclasses="strong hover:text-[var(--color-Orange)] hover:cursor-pointer"
+        >Rejsegarantifonden</Text
+      >
+      <Text
+        stylingclasses="strong hover:text-[var(--color-Orange)] hover:cursor-pointer"
+        >Generelle bestemmelser</Text
+      >
+      <Text
+        stylingclasses="strong hover:text-[var(--color-Orange)] hover:cursor-pointer"
+        >Grupperejser for unge</Text
+      >
+      <Text
+        stylingclasses="strong hover:text-[var(--color-Orange)] hover:cursor-pointer"
+        >Rejs i dit sabbatår</Text
+      >
     </div>
     <div class="hidden md:block">
-      <Heading htmlheading="h3" , size="medium" , font="display" , stylingclasses="text-[var(--color-White)] mb-4">HØJSKOLE I UDLANDET</Heading>
-      <Text stylingclasses="strong hover:text-[var(--color-Orange)] hover:cursor-pointer">Højskole i Maldiverne, Sri Lanka, Bali, Gili Islands, Japan & Australien</Text>
-      <Text stylingclasses="strong hover:text-[var(--color-Orange)] hover:cursor-pointer">Højskole i Australien, New Zealand, Vietnal, Bali, Gili Islands & Lombok</Text>
-      <Text stylingclasses="strong hover:text-[var(--color-Orange)] hover:cursor-pointer">Højskole i Brasilien, Colombia, Costa Rica & Mexico</Text>
-      <Text stylingclasses="strong hover:text-[var(--color-Orange)] hover:cursor-pointer">Højskole i Costa Rica, Mexico & Colombia</Text>
-      <Text stylingclasses="strong hover:text-[var(--color-Orange)] hover:cursor-pointer">Højskole i Indien, Nepal, Thailand, Vietnam & Sri Lanka</Text>
-      <Text stylingclasses="strong hover:text-[var(--color-Orange)] hover:cursor-pointer">Højskole i Hawaii, Australien, Japan, Bali & Gili Islands</Text>
-      <Text stylingclasses="strong hover:text-[var(--color-Orange)] hover:cursor-pointer">Højskole i Maldiverne, Sri Lanka, Bali & Gili Islands</Text>
-      <Text stylingclasses="strong hover:text-[var(--color-Orange)] hover:cursor-pointer">Højskole i Brasilien, Bolivia, Colombia, Ecuador, Peru & Argentina</Text>
-      <Text stylingclasses="strong hover:text-[var(--color-Orange)] hover:cursor-pointer">Højskole i Australien, Japan, Bali & Gili Islands</Text>
-      <Text stylingclasses="strong hover:text-[var(--color-Orange)] hover:cursor-pointer">Sommerhøjskole i Bali, Gili Islands & Lombok</Text>
-      <Text stylingclasses="strong hover:text-[var(--color-Orange)] hover:cursor-pointer">Sommerhøjskole i Japan</Text>
+      <Heading
+        htmlheading="h3"
+        ,
+        size="medium"
+        ,
+        font="display"
+        ,
+        stylingclasses="text-[var(--color-White)] mb-4"
+        >HØJSKOLE I UDLANDET</Heading
+      >
+      <Text
+        stylingclasses="strong hover:text-[var(--color-Orange)] hover:cursor-pointer"
+        >Højskole i Maldiverne, Sri Lanka, Bali, Gili Islands, Japan &
+        Australien</Text
+      >
+      <Text
+        stylingclasses="strong hover:text-[var(--color-Orange)] hover:cursor-pointer"
+        >Højskole i Australien, New Zealand, Vietnal, Bali, Gili Islands &
+        Lombok</Text
+      >
+      <Text
+        stylingclasses="strong hover:text-[var(--color-Orange)] hover:cursor-pointer"
+        >Højskole i Brasilien, Colombia, Costa Rica & Mexico</Text
+      >
+      <Text
+        stylingclasses="strong hover:text-[var(--color-Orange)] hover:cursor-pointer"
+        >Højskole i Costa Rica, Mexico & Colombia</Text
+      >
+      <Text
+        stylingclasses="strong hover:text-[var(--color-Orange)] hover:cursor-pointer"
+        >Højskole i Indien, Nepal, Thailand, Vietnam & Sri Lanka</Text
+      >
+      <Text
+        stylingclasses="strong hover:text-[var(--color-Orange)] hover:cursor-pointer"
+        >Højskole i Hawaii, Australien, Japan, Bali & Gili Islands</Text
+      >
+      <Text
+        stylingclasses="strong hover:text-[var(--color-Orange)] hover:cursor-pointer"
+        >Højskole i Maldiverne, Sri Lanka, Bali & Gili Islands</Text
+      >
+      <Text
+        stylingclasses="strong hover:text-[var(--color-Orange)] hover:cursor-pointer"
+        >Højskole i Brasilien, Bolivia, Colombia, Ecuador, Peru & Argentina</Text
+      >
+      <Text
+        stylingclasses="strong hover:text-[var(--color-Orange)] hover:cursor-pointer"
+        >Højskole i Australien, Japan, Bali & Gili Islands</Text
+      >
+      <Text
+        stylingclasses="strong hover:text-[var(--color-Orange)] hover:cursor-pointer"
+        >Sommerhøjskole i Bali, Gili Islands & Lombok</Text
+      >
+      <Text
+        stylingclasses="strong hover:text-[var(--color-Orange)] hover:cursor-pointer"
+        >Sommerhøjskole i Japan</Text
+      >
     </div>
   </div>
   <!-- Samarbejdspartnere -->
   <div class="ml-5">
-    <Heading htmlheading="h3" , size="medium" , font="display" , stylingclasses="text-[var(--color-White)] mb-4">SAMARBEJDSPARTNERE</Heading>
-    <Image src="/img/samarbejdspartnere.png" alt="Samarbejdspartnere" width="300" height="70" class="mb-4 -mt-5" />
+    <Heading
+      htmlheading="h3"
+      ,
+      size="medium"
+      ,
+      font="display"
+      ,
+      stylingclasses="text-[var(--color-White)] mb-4"
+      >SAMARBEJDSPARTNERE</Heading
+    >
+    <Image
+      src="/img/samarbejdspartnere.png"
+      alt="Samarbejdspartnere"
+      width="300"
+      height="70"
+      class="mb-4 -mt-5"
+    />
   </div>
   <!-- Sociale Medier -->
   <div class="grid grid-cols-3 max-w-40 gap-6 mt-10 mb-5 ml-5">
     <!-- Facebook -->
-    <Image src="/img/Facebook.png" alt="Facebook Logo" width="450" height="70" class="" />
+    <Image
+      src="/img/Facebook.png"
+      alt="Facebook Logo"
+      width="450"
+      height="70"
+      class=""
+    />
     <!-- Instagram -->
     <div>
-      <Image src="/img/Instagram.png" alt="Instagram Logo" width="450" height="70" class="" />
+      <Image
+        src="/img/Instagram.png"
+        alt="Instagram Logo"
+        width="450"
+        height="70"
+        class=""
+      />
     </div>
     <!-- YouTube -->
     <div>
-      <Image src="/img/Youtube.png" alt="YouTube Logo" width="450" height="70" class="" />
+      <Image
+        src="/img/Youtube.png"
+        alt="YouTube Logo"
+        width="450"
+        height="70"
+        class=""
+      />
     </div>
   </div>
   <section class="bg-[var(--color-Lightblue)] h-4 w-full"></section>
-  <section class="grid grid-cols-[1fr_1fr_1.25fr] text-center bg-[var(--color-Darkblue)] text-white p-2">
-    <Text stylingclasses="my-4">HÖJSKOLENDK er medlem af Rejsegarantifonden.</Text>
-    <Text stylingclasses="my-4">Handelsbetingelser / Cookiepolitik / Data- & Privatlivspolitik</Text>
-    <Text stylingclasses="my-4">Copyright &copy; 2025 Celina Sguazzino, Signe Munk, Emilie Mikkelsen</Text>
+  <section
+    class="grid grid-cols-[1fr_1fr_1.25fr] text-center bg-[var(--color-Darkblue)] text-white p-2"
+  >
+    <Text stylingclasses="my-4"
+      >HÖJSKOLENDK er medlem af Rejsegarantifonden.</Text
+    >
+    <Text stylingclasses="my-4"
+      >Handelsbetingelser / Cookiepolitik / Data- & Privatlivspolitik</Text
+    >
+    <Text stylingclasses="my-4"
+      >Copyright &copy; 2025 Celina Sguazzino, Signe Munk, Emilie Mikkelsen</Text
+    >
   </section>
 </footer>

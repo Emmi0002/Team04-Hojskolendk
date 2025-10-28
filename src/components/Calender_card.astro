@@ -3,16 +3,31 @@ import Button from "./Button.astro";
 import Text from "./Text.astro";
 ---
 
-<section class="bg-[var(--color-Beige)] py-5 px-4 gap-5 max-w-[400px] md:max-w-[1500px] mx-auto">
+<section
+  class="bg-[var(--color-Beige)] py-5 px-4 gap-5 max-w-[400px] md:max-w-[1500px] mx-auto"
+>
   <div class="grid grid-cols-3 md:grid-cols-12 gap-2 md:gap-4 items-center">
-    <img src="/img/baad.jpeg" alt="billede på båd" class="w-full h-auto object-cover md:col-span-1" />
-    <Text stylingclasses="col-span-2 md:col-span-3 mr-24"> AUSTRALIEN, NEW ZEALAND, VIETNAM, BALI, GILI ISLANDS & LOMBOK </Text>
+    <img
+      src="/img/baad.jpeg"
+      alt="billede på båd"
+      class="w-full h-auto object-cover md:col-span-1"
+    />
+    <Text stylingclasses="col-span-2 md:col-span-3 mr-24">
+      AUSTRALIEN, NEW ZEALAND, VIETNAM, BALI, GILI ISLANDS & LOMBOK
+    </Text>
     <Text> 14/12 - 2025 </Text>
     <Text> 3 måneder </Text>
     <Text stylingsclasses="col-span-1 row-start-4"> 77.400 DKK </Text>
     <Text> Få pladser! </Text>
     <a href="#" class="flex justify-end items-top col-span-1">
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 md:w-6 md:h-6">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        class="w-4 h-4 md:w-6 md:h-6"
+      >
         <path
           stroke-linecap="round"
           stroke-linejoin="round"
@@ -20,6 +35,6 @@ import Text from "./Text.astro";
         ></path>
       </svg>
     </a>
-    <Button stylingclasses=" md:col-span-2">Tilmeld dig opholdet</Button>
+    <Button stylingclasses=" md:col-span-2">Tilmeld dig</Button>
   </div>
 </section>
