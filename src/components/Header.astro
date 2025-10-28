@@ -2,27 +2,71 @@
 const pathname = new URL(Astro.request.url).pathname;
 const currentPath = pathname.slice(1); // remove the first "/"
 ---
-<header x-data="{ showmenu: false }" class="" >
-    <div id="navbar" class="container mx-auto p-4 flex flex-row justify-between items-center">
-        <div id="logo" class="">
-            <a href="#" class="font-display text-4xl">Astro-Tailwind starter - udvidet udgave E25</a>
+
+<header
+  x-data="{ 
+    isOpen: false,
+    isScrolled: false
+  }"
+  @scroll.window="isScrolled = window.pageYOffset > 60"
+  class="fixed top-0 w-full z-50 transition-all duration-300"
+  :class="{'bg-gradient-to-b from-black/50 to-transparent backdrop-blur-sm': isScrolled}"
+>
+  <div class="container mx-auto px-4">
+    <div class="flex justify-between items-center py-4">
+      <!-- Logo -->
+      <a href="/" class="flex items-center">
+        <img src="/img/logo/logoorange.png" alt="Logo" class="h-10" />
+      </a>
+
+      <!-- Burger Menu Button -->
+      <button @click="isOpen = !isOpen" class="relative z-50 w-13 h-10 flex items-center justify-center group" aria-label="Toggle Menu">
+        <div class="relative w-13 h-7">
+          <span class="absolute w-full h-0.5 bg-[var(--color-Orange)] transition-transform duration-300 ease-in-out" :class="{'rotate-45 translate-y-[8px]': isOpen, 'translate-y-1': !isOpen}"></span>
+          <span class="absolute w-full h-0.5 bg-[var(--color-Orange)] transition-all duration-300 ease-in-out origin-center" :class="{'!-rotate-45 translate-y-[8px]': isOpen, 'translate-y-3': !isOpen}"></span>
+          <span class="absolute text-[var(--color-Orange)] text-s tracking-widest font-display transition-all duration-300 whitespace-nowrap left-6 right-0 -top-2 text-top" :class="{'opacity-0': isOpen, 'translate-y-6': !isOpen}">MENU</span>
         </div>
-        <nav id="desktopmenu" class="hidden lg:block">
-            <ul class="flex flex-row gap-4">
-                <li class=""><a href="/" class={currentPath === "" ? "italic font-bold" : "italic"}>Forside</a></li><!-- alternativt: lav et <a href="">Link</a>, hvis du ikke vil bruge Link.astro komponenten -->
-                <li class=""><a href="/komponentbibliotek/" class={currentPath === "komponentbibliotek/" ? "italic font-bold" : "italic"}>Komponentbibliotek</a></li>
-            </ul>
+      </button>
+
+      <!-- Slide-in Menu -->
+      <div
+        x-cloak
+        x-show="isOpen"
+        x-transition:enter="transition ease-out duration-300"
+        x-transition:enter-start="opacity-0 translate-x-full"
+        x-transition:enter-end="opacity-100 translate-x-0"
+        x-transition:leave="transition ease-in duration-200"
+        x-transition:leave-start="opacity-100 translate-x-0"
+        x-transition:leave-end="opacity-0 translate-x-full"
+        class="fixed inset-y-0 right-0 w-full md:w-96 bg-[var(--color-Lightblue)] z-40"
+        @click.away="isOpen = false"
+      >
+        <nav class="flex flex-col items-end pt-32 px-16 h-full space-y-10">
+          <a href="/" class="text-[var(--color-Orange)] text-2xl font-display relative group" :class="{ 'text-[var(--color-Orange)]': currentPath === '' }" @click="isOpen = false">
+            <span class="relative z-10">Forside</span>
+            <span class="absolute left-0 -bottom-1 w-0 h-0.5 bg-[var(--color-Orange)] transition-all duration-300 group-hover:w-full"></span>
+          </a>
+          <a href="/rejsekalender" class="text-[var(--color-Orange)] text-2xl font-display relative group" :class="{ 'text-[var(--color-Orange)]': currentPath === 'rejsekalender' }" @click="isOpen = false">
+            <span class="relative z-10">Rejsekalender</span>
+            <span class="absolute left-0 -bottom-1 w-0 h-0.5 bg-[var(--color-Orange)] transition-all duration-300 group-hover:w-full"></span>
+          </a>
+          <a href="/Singleview" class="text-[var(--color-Orange)] text-2xl font-display relative group" :class="{ 'text-[var(--color-Orange)]': currentPath === 'singleview' }" @click="isOpen = false">
+            <span class="relative z-10">Singleview</span>
+            <span class="absolute left-0 -bottom-1 w-0 h-0.5 bg-[var(--color-Orange)] transition-all duration-300 group-hover:w-full"></span>
+          </a>
         </nav>
-        <button id="burgermenu" class="lg:hidden" x-on:click="showmenu = ! showmenu"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-  <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-</svg>
-</button>
+      </div>
     </div>
-    <nav id="mobilmenu" class="flex flex-col content-center" 
-    x-show="showmenu" x-transition x-on:click="showmenu = false" x-on:click.outside="showmenu = false">
-        <ul class="border-t-2 border-b-2 border-black">
-            <li class="text-center py-2"><a href="/" class={currentPath === "" ? "italic font-bold" : "italic"}>Forside</a></li>
-            <li class="text-center py-2"><a href="/komponentbibliotek/" class={currentPath === "komponentbibliotek/" ? "italic font-bold" : "italic"}>Komponentbibliotek</a></li>
-        </ul>
-    </nav>
+  </div>
 </header>
+
+<style>
+  /* Ensure content below header doesn't hide behind it */
+  :global(body) {
+    padding-top: 5rem;
+  }
+
+  [x-cloak] {
+    display: none !important;
+  }
+</style>
