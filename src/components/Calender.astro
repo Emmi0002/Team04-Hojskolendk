@@ -4,14 +4,26 @@ import Heading from "./Heading.astro";
 ---
 
 <section>
-  <Heading htmlheading="h2" size="Medium" stylingclasses="ml-20"
+  <Heading htmlheading="h2" size="Medium" stylingclasses="ml-7 md:ml-20"
     >Tag med på næste eventyr</Heading
   >
   <div class="h-[11px] w-full bg-[var(--color-Lightblue)] mt-2"></div>
   <div class="space-y-8 mt-8">
-    <CalenderCard />
-    <CalenderCard />
-    <CalenderCard />
+    <div
+      class="intersect:animate-fade-up intersect:animate-duration[10000ms] intersect:animate-delay-[500ms]"
+    >
+      <CalenderCard />
+    </div>
+    <div
+      class="intersect:animate-fade-up intersect:animate-duration[10000ms] intersect:animate-delay-[700ms]"
+    >
+      <CalenderCard />
+    </div>
+    <div
+      class="intersect:animate-fade-up intersect:animate-duration[10000ms] intersect:animate-delay-[900ms]"
+    >
+      <CalenderCard />
+    </div>
   </div>
   <div class="h-[11px] w-full bg-[var(--color-Lightblue)] mt-6"></div>
 </section>

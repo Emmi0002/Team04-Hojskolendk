@@ -6,16 +6,19 @@ import Text from "./Text.astro";
 <section
   class="container
   mx-auto
+  mt-10
   p-4
   flex
   flex-col
   md:flex-row
   justify-center
   items-center
-  gap-20"
+  gap-10 md:gap-20"
 >
-  <div>
-    <div>
+  <div class="text-center md:text-left">
+    <div
+      class="intersect:animate-fade-right intersect:animate-duration[10000ms] intersect:animate-delay-[500ms]"
+    >
       <Heading
         htmlheading="h2"
         size="Large"
@@ -24,21 +27,29 @@ import Text from "./Text.astro";
       >
     </div>
 
-    <div class="text-center md:text-left">
+    <div
+      class="intersect:animate-fade-right intersect:animate-duration[10000ms] intersect:animate-delay-[700ms]"
+    >
       <Heading htmlheading="h3" size="medium" font="display">Introdage</Heading>
 
       <Text stylingclasses="mb-5">Dubai/Doha/Brisbane/Bangkok/Singapore</Text>
     </div>
-    <div>
+    <div
+      class="intersect:animate-fade-right intersect:animate-duration[10000ms] intersect:animate-delay-[900ms]"
+    >
       <Heading htmlheading="h3" size="medium" font="display">Australien</Heading
       >
       <Text stylingclasses="mb-5">Byron Bay</Text>
     </div>
-    <div>
+    <div
+      class="intersect:animate-fade-right intersect:animate-duration[10000ms] intersect:animate-delay-[1000ms]"
+    >
       <Heading htmlheading="h3" size="medium" font="display">Japan</Heading>
       <Text stylingclasses="mb-5">Tokyo, Kyoto, Hiroshima, Osaka & Nara</Text>
     </div>
-    <div>
+    <div
+      class="intersect:animate-fade-right intersect:animate-duration[10000ms] intersect:animate-delay-[1200ms]"
+    >
       <Heading htmlheading="h3" size="medium" font="display">Indonesien</Heading
       >
       <Text>Bali, Gili Islands & Nusa Penida</Text>
