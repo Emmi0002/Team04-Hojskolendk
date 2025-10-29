@@ -16,15 +16,28 @@ const currentPath = pathname.slice(1); // remove the first "/"
     <div class="flex justify-between items-center py-4">
       <!-- Logo -->
       <a href="/" class="flex items-center">
-        <img src="/img/logo/logoorange.png" alt="Logo" class="md:h-10 h-6" />
+        <img src="/img/logo/logoorange.webp" alt="Logo" class="md:h-10 h-6" />
       </a>
 
       <!-- Burger Menu Button -->
-      <button @click="isOpen = !isOpen" class="relative z-50 flex flex-col items-end justify-center group pr-1 md:pr-0" aria-label="Toggle Menu">
+      <button
+        @click="isOpen = !isOpen"
+        class="relative z-50 flex flex-col items-end justify-center group pr-1 md:pr-0"
+        aria-label="Toggle Menu"
+      >
         <div class="relative w-8 md:w-11 h-6 md:h-7">
-          <span class="absolute w-full h-0.5 bg-[var(--color-Orange)] transition-transform duration-300 ease-in-out origin-center right-1" :class="{'rotate-45 translate-y-[8px]': isOpen, 'translate-y-1': !isOpen}"></span>
-          <span class="absolute w-full h-0.5 bg-[var(--color-Orange)] transition-all duration-300 ease-in-out origin-center right-1" :class="{'!-rotate-45 translate-y-[8px]': isOpen, 'translate-y-3': !isOpen}"></span>
-          <span class="absolute text-[var(--color-Orange)] text-[10px] md:text-xs tracking-widest font-display transition-all duration-300 whitespace-nowrap -left-1 text-center" :class="{'opacity-0': isOpen, 'translate-y-5': !isOpen}">MENU</span>
+          <span
+            class="absolute w-full h-0.5 bg-[var(--color-Orange)] transition-transform duration-300 ease-in-out origin-center right-1"
+            :class="{'rotate-45 translate-y-[8px]': isOpen, 'translate-y-1': !isOpen}"
+          ></span>
+          <span
+            class="absolute w-full h-0.5 bg-[var(--color-Orange)] transition-all duration-300 ease-in-out origin-center right-1"
+            :class="{'!-rotate-45 translate-y-[8px]': isOpen, 'translate-y-3': !isOpen}"
+          ></span>
+          <span
+            class="absolute text-[var(--color-Orange)] text-[10px] md:text-xs tracking-widest font-display transition-all duration-300 whitespace-nowrap -left-1 text-center"
+            :class="{'opacity-0': isOpen, 'translate-y-5': !isOpen}">MENU</span
+          >
         </div>
       </button>
 
@@ -41,18 +54,41 @@ const currentPath = pathname.slice(1); // remove the first "/"
         class="fixed inset-y-0 right-0 w-full md:w-96 bg-[var(--color-Lightblue)] z-40"
         @click.away="isOpen = false"
       >
-        <nav class="flex flex-col items-end pt-24 md:pt-32 px-8 md:px-16 h-full space-y-6 md:space-y-10">
-          <a href="/" class="text-[var(--color-Orange)] text-xl md:text-2xl font-display relative group" :class="{ 'text-[var(--color-Orange)]': currentPath === '' }" @click="isOpen = false">
+        <nav
+          class="flex flex-col items-end pt-24 md:pt-32 px-8 md:px-16 h-full space-y-6 md:space-y-10"
+        >
+          <a
+            href="/"
+            class="text-[var(--color-Orange)] text-xl md:text-2xl font-display relative group"
+            :class="{ 'text-[var(--color-Orange)]': currentPath === '' }"
+            @click="isOpen = false"
+          >
             <span class="relative z-10">Forside</span>
-            <span class="absolute left-0 -bottom-1 w-0 h-0.5 bg-[var(--color-Orange)] transition-all duration-300 group-hover:w-full"></span>
+            <span
+              class="absolute left-0 -bottom-1 w-0 h-0.5 bg-[var(--color-Orange)] transition-all duration-300 group-hover:w-full"
+            ></span>
           </a>
-          <a href="/rejsekalender" class="text-[var(--color-Orange)] text-xl md:text-2xl font-display relative group" :class="{ 'text-[var(--color-Orange)]': currentPath === 'rejsekalender' }" @click="isOpen = false">
+          <a
+            href="/rejsekalender"
+            class="text-[var(--color-Orange)] text-xl md:text-2xl font-display relative group"
+            :class="{ 'text-[var(--color-Orange)]': currentPath === 'rejsekalender' }"
+            @click="isOpen = false"
+          >
             <span class="relative z-10">Rejsekalender</span>
-            <span class="absolute left-0 -bottom-1 w-0 h-0.5 bg-[var(--color-Orange)] transition-all duration-300 group-hover:w-full"></span>
+            <span
+              class="absolute left-0 -bottom-1 w-0 h-0.5 bg-[var(--color-Orange)] transition-all duration-300 group-hover:w-full"
+            ></span>
           </a>
-          <a href="/Singleview" class="text-[var(--color-Orange)] text-xl md:text-2xl font-display relative group" :class="{ 'text-[var(--color-Orange)]': currentPath === 'singleview' }" @click="isOpen = false">
+          <a
+            href="/Singleview"
+            class="text-[var(--color-Orange)] text-xl md:text-2xl font-display relative group"
+            :class="{ 'text-[var(--color-Orange)]': currentPath === 'singleview' }"
+            @click="isOpen = false"
+          >
             <span class="relative z-10">Singleview</span>
-            <span class="absolute left-0 -bottom-1 w-0 h-0.5 bg-[var(--color-Orange)] transition-all duration-300 group-hover:w-full"></span>
+            <span
+              class="absolute left-0 -bottom-1 w-0 h-0.5 bg-[var(--color-Orange)] transition-all duration-300 group-hover:w-full"
+            ></span>
           </a>
         </nav>
       </div>
